@@ -1,0 +1,37 @@
+CREATE DATABASE EmployeeChallenge
+Go
+
+USE EmployeeChallenge;
+Go
+
+CREATE TABLE Department
+(
+	ID INT PRIMARY KEY,
+	DeptName VARCHAR(50) NOT NULL,
+	Location VARCHAR(100) NOT NULL,
+)
+Go
+
+CREATE TABLE Employee
+(
+	ID INT PRIMARY KEY,
+	FirstName VARCHAR(50) NOT NULL,
+	LastName VARCHAR(50) NOT NULL,
+	SSN INT NOT NULL,
+	DeptID INT NOT NULL REFERENCES Department(ID),
+)
+Go
+
+CREATE TABLE EmpDetails
+(
+	ID INT PRIMARY KEY,
+	EmployeeID INT NOT NULL REFERENCES Employee(ID),
+	Salary INT NOT NULL,
+	Address1 VARCHAR(75) NOT NULL,
+	Address2 VARCHAR(75) NULL,
+	City VARCHAR(50) NOT NULL,
+	HomeState VARCHAR(50) NOT NULL,
+	Country VARCHAR(50) NOT NULL,
+)
+Go
+
